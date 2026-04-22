@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LiveStream Translator</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-icon">🌐</div>
+      <div>
+        <h1>LiveStream Translator</h1>
+        <p class="subtitle">Japanese → English Live Captions</p>
+      </div>
+    </div>
+
+    <!-- API Key -->
+    <div class="section">
+      <label for="apiKey">Gemini API Key</label>
+      <div class="input-row">
+        <input
+          type="password"
+          id="apiKey"
+          placeholder="Paste your free API key here..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="toggleKey" class="btn-icon" title="Show / Hide key">👁</button>
+      </div>
+      <div class="help-row">
+        <span id="keyStatus" class="key-status"></span>
+        <a href="https://aistudio.google.com/apikey" target="_blank" class="link">Get free key →</a>
+      </div>
+    </div>
+
+    <!-- Start / Stop -->
+    <div class="section center">
+      <button id="toggleCapture" class="btn-primary btn-start">
+        ▶&nbsp; Start Translation
+      </button>
+      <div id="statusBadge" class="badge badge-off">● Inactive</div>
+    </div>
+
+    <!-- Divider -->
+    <hr />
+
+    <!-- Caption Settings -->
+    <div class="section">
+      <label class="section-label">Caption Settings</label>
+
+      <div class="setting-row">
+        <span class="setting-name">Font Size</span>
+        <input type="range" id="fontSize" min="12" max="36" value="18" />
+        <span class="setting-value" id="fontSizeVal">18px</span>
+      </div>
+
+      <div class="setting-row">
+        <span class="setting-name">Background</span>
+        <input type="range" id="captionOpacity" min="0.3" max="1" step="0.05" value="0.82" />
+        <span class="setting-value" id="opacityVal">82%</span>
+      </div>
+
+      <div class="setting-row">
+        <span class="setting-name">Position</span>
+        <select id="captionPosition">
+          <option value="bottom">Bottom of screen</option>
+          <option value="top">Top of screen</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="https://github.com/yourusername/livestream-translator" target="_blank">
+        ⭐ View on GitHub
+      </a>
+      <span class="version">v1.0.0</span>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

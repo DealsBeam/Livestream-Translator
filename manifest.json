@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "name": "LiveStream Translator",
+  "version": "1.0.0",
+  "description": "Real-time Japanese to English live captions for TwitCasting and other livestream sites. Free and open source.",
+  "author": "Open Source Contributors",
+
+  "permissions": [
+    "tabCapture",
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    },
+    "default_title": "LiveStream Translator"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "livestream-translator@opensource",
+      "strict_min_version": "57.0"
+    }
+  }
+}
